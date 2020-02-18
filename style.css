@@ -1,0 +1,11 @@
+.btn-grid{
+    display: grid;
+}
+
+.btn:hover {
+    background-color: yellow;
+}
+
+.hide {
+    display: none;
+}
