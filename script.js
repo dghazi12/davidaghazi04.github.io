@@ -4,7 +4,7 @@ var timer = document.querySelector("#timer");
 var instructions = document.querySelector('.instructions')
 var questionContainer = document.querySelector('#question-container')
 var nextButton = document.querySelector("#next-btn")
-var previousButton = document.querySelector("#previous-btn")
+var finishButton = document.querySelector("#finish-btn")
 let shuffledQuestions, currentQuestionsIndex
 
 var questionElement = document.querySelector('#question')
@@ -14,11 +14,6 @@ var count = 75;
 
 nextButton.addEventListener('click', () =>{
     currentQuestionsIndex ++
-    setNextQuestion()
-})
-
-previousButton.addEventListener('click', () =>{
-    currentQuestionsIndex --
     setNextQuestion()
 })
 
@@ -68,7 +63,6 @@ function resetState(){
     }
 }
 
-// Might need to change how to log correct answer
 function selectAnswer (e){
     var selectedButton = e.target
     var correct = selectedButton.dataset.correct
@@ -78,24 +72,17 @@ function selectAnswer (e){
     })
     if (shuffledQuestions.length > currentQuestionsIndex + 1){
         nextButton.classList.remove('hide')
-        previousButton.classList.remove('hide')
     }else {
-        startQuiz.classList.remove('hide')
+        finishButton.classList.remove('hide')
     }
 }
 
 function setStatusClass(element, correct){
-    clearStatusClass(element)
     if (correct){
         element.classList.add('correct')
     }else {
         element.classList.add('wrong')
     }
-}
-
-function clearStatusClass(element){
-    element.classList.remove('correct')
-    element.classList.remove('wrong')
 }
 
 var questions = [
