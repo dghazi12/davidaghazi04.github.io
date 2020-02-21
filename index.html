@@ -43,18 +43,28 @@
         </div>
 
         <div id="question-container" class="hide">
-            <div id="question">Question</div>
-            <div id="answer-buttons" class="btn-grid">
-                <button class="btn">Answer 1</button>
-                <button class="btn">Answer 2</button>
-                <button class="btn">Answer 3</button>
-                <button class="btn">Answer 4</button>
+            <div class="question-number">
+                <h3>Question <span class="question-num-value">1</span> of 5</h3>
+            </div>
+            <div id="firstQuestion">
+                Question
+            </div>
+
+            <div id="answer-options" class="btn-grid">
+                <button id="option1" class="btn">Answer 1</button>
+                <button id="option2" class="btn">Answer 2</button>
+                <button id="option3" class="btn">Answer 3</button>
+                <button id="option4" class="btn">Answer 4</button>
             </div>
         </div>
 
         <div class="controls">
             <button id="next-btn" class="next-btn btn hide">Next</button>
             <button id="finish-btn" class="next-btn btn hide">Finish</button>
+        </div>
+
+        <div class="score-card">
+            Score : <span id="score">12</span>
         </div>
 
     </div>
