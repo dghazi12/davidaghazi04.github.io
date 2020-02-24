@@ -17,7 +17,6 @@ var myClock = function () {
     timerNumber.innerHTML = count;
     if (count === 0) {
         clearInterval(myTimer);
-
     }
 }
 
@@ -90,7 +89,9 @@ function setStatusClass(element, correct) {
         element.classList.add('correct')
     } else {
         element.classList.add('wrong')
-        // var count = count - 10;
+        element.addEventListener('click', () => {
+            count = count - 10
+        })
     }
 }
 
@@ -100,13 +101,8 @@ function clearStatusClass(element) {
 }
 
 finishButton.addEventListener('click', function(){
-    pauseTimer()
-    console.log(myTimer)
+    clearInterval(myTimer)
 })
-
-function pauseTimer() {
-    clearInterval(myTimer);
-  }
 
 var questions = [
     {
@@ -156,51 +152,3 @@ var questions = [
         ]
     },
 ]
-
-// var questions = [
-//     {
-//         question: 'Arrays in Javascript can be used to store ________.',
-//         answer: [
-//             { text: 'Numbers and Strings', correct: false },
-//             { text: 'Other Arrays', correct: false },
-//             { text: 'Booleans', correct: true },
-//             { text: 'All of the Above', correct: false }
-//         ]
-//     },
-//     {
-//         question: 'String values must be enclosed within ________ when being assigned to variables. ',
-//         answer: [
-//             { text: 'Commas', correct: false },
-//             { text: 'Curly Brackets', correct: true },
-//             { text: 'Quotes', correct: false },
-//             { text: 'Parentheses', correct: false }
-//         ]
-//     },
-//     {
-//         question: 'Commonly used data types DO NOT include:',
-//         answer: [
-//             { text: 'Strings', correct: true },
-//             { text: 'Booleans', correct: false },
-//             { text: 'Alerts', correct: false },
-//             { text: 'Numbers', correct: false }
-//         ]
-//     },
-//     {
-//         question: 'The condition in an if / else statement is enclosed within ________.',
-//         answer: [
-//             { text: 'Quotes', correct: true },
-//             { text: 'Curly Brackets', correct: false },
-//             { text: 'Parantheses', correct: false },
-//             { text: 'Square Brackets', correct: false }
-//         ]
-//     },
-//     {
-//         question: 'A very useful tool used during development and debugging for printing content to the debugger is:',
-//         answer: [
-//             { text: 'Javascript', correct: true },
-//             { text: 'Terminal/Bash', correct: false },
-//             { text: 'For Loops', correct: false },
-//             { text: 'Console Log', correct: false }
-//         ]
-//     },
-// ]
