@@ -8,11 +8,16 @@ var questionElement = document.querySelector('#question')
 var answerButtonsElement = document.querySelector('#answer-buttons')
 var nextButton = document.querySelector('#next-btn')
 var finishButton = document.querySelector('#finish-btn')
+var userScore = document.querySelector('.user-score')
+var scoreNumber = document.querySelector('#score-number')
+var submitButton = document.querySelector('#button-addon2')
+var highscore = document.querySelector('.highscore')
+var backButton = document.querySelector('#back-btn')
 
 var count = 75;
 var myTimer;
 
-var myClock = function () {
+var myClock = function (myClock) {
     count--
     timerNumber.innerHTML = count;
     if (count === 0) {
@@ -26,12 +31,12 @@ function clock() {
     myTimer = setInterval(myClock, 1000);
 }
 
-startQuiz.addEventListener("click", () => {
+startQuiz.addEventListener("click", function () {
     startGame()
     clock()
 })
 
-nextButton.addEventListener('click', () => {
+nextButton.addEventListener('click', function () {
     currentQuestionsIndex++
     setNextQuestion()
 })
@@ -89,7 +94,7 @@ function setStatusClass(element, correct) {
         element.classList.add('correct')
     } else {
         element.classList.add('wrong')
-        element.addEventListener('click', () => {
+        element.addEventListener('click', function () {
             count = count - 10
         })
     }
@@ -100,19 +105,37 @@ function clearStatusClass(element) {
     element.classList.remove('wrong')
 }
 
-finishButton.addEventListener('click', function(){
+finishButton.addEventListener('click', function () {
     clearInterval(myTimer)
+    userScore.classList.remove('hide')
+    questionContainer.classList.add('hide')
+    finishButton.classList.add('hide')
+    scoreNumber.innerText = count
+})
+
+submitButton.addEventListener('click', function () {
+    highscore.classList.remove('hide')
+    userScore.classList.add('hide')
+})
+
+var enterInitials = document.querySelector('.form-control')
+var submitToStorage = document.querySelector('#button-addon2')
+var lsOutput = document.querySelector('#lsOutput');
+
+submitToStorage.addEventListener('click', function () {
+    var initials = enterInitials.value + ': ' + count
+    lsOutput.innerHTML += `${initials} <br />`;
 })
 
 var questions = [
     {
         question: 'Arrays in Javascript can be used to store ________.',
-        answer: [   
+        answer: [
             { text: 'Numbers and Strings', correct: false },
             { text: 'Other Arrays', correct: false },
             { text: 'Booleans', correct: false, },
             { text: 'All of the Above', correct: true }
-            
+
         ]
     },
     {
@@ -121,7 +144,7 @@ var questions = [
             { text: 'Commas', correct: false },
             { text: 'Curly Brackets', correct: false },
             { text: 'Quotes', correct: true },
-            { text: 'Parentheses', correct: false}
+            { text: 'Parentheses', correct: false }
         ]
     },
     {
