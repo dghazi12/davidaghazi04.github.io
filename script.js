@@ -13,6 +13,8 @@ var scoreNumber = document.querySelector('#score-number')
 var submitButton = document.querySelector('#button-addon2')
 var highscore = document.querySelector('.highscore')
 var backButton = document.querySelector('#back-btn')
+var viewHighscore = document.querySelector('#view-highscore')
+var clearHighscore = document.querySelector('#clear-btn')
 
 var count = 75;
 var myTimer;
@@ -113,6 +115,16 @@ finishButton.addEventListener('click', function () {
     scoreNumber.innerText = count
 })
 
+viewHighscore.addEventListener('click', function(){
+    clearInterval(myTimer)
+    userScore.classList.add('hide')
+    questionContainer.classList.add('hide')
+    finishButton.classList.add('hide')
+    startQuiz.classList.add('hide')
+    instructions.classList.add('hide')
+    highscore.classList.remove('hide')
+})
+
 submitButton.addEventListener('click', function () {
     highscore.classList.remove('hide')
     userScore.classList.add('hide')
@@ -121,10 +133,22 @@ submitButton.addEventListener('click', function () {
 var enterInitials = document.querySelector('.form-control')
 var submitToStorage = document.querySelector('#button-addon2')
 var lsOutput = document.querySelector('#lsOutput');
+var count = 75; 
 
 submitToStorage.addEventListener('click', function () {
     var initials = enterInitials.value + ': ' + count
     lsOutput.innerHTML += `${initials} <br />`;
+    localStorage.getItem(initials);
+})
+
+backButton.addEventListener('click', function(){
+    instructions.classList.remove('hide')
+    highscore.classList.add('hide')
+    startQuiz.classList.remove('hide')
+})
+
+clearHighscore.addEventListener('click', function(){
+    localStorage.clear(initials)
 })
 
 var questions = [
