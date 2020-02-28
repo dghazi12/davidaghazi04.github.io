@@ -17,7 +17,7 @@ var clearHighscore = document.querySelector('#clear-btn');
 var smallContainer = document.querySelector('.small-container');
 
 var myTimer;
-var count = 75;
+var count = 30;
 
 var myClock = function (myClock) {
     count--;
@@ -118,6 +118,7 @@ finishButton.addEventListener('click', function () {
 backButton.addEventListener('click', function () {
     instructions.classList.remove('hide');
     startQuiz.classList.remove('hide');
+    userScore.classList.add('hide');
     window.location.reload();
 });
 
@@ -133,6 +134,7 @@ const data = JSON.parse(localStorage.getItem('items'));
 
 const liMaker = text => {
     const li = document.createElement('li');
+    localStorage.getItem(count)
     li.textContent = text + count;
     ul.appendChild(li);
 };
@@ -157,16 +159,12 @@ clearHighscore.addEventListener('click', function () {
 });
 
 viewHighscore.addEventListener('click', function () {
+    instructions.classList.add('hide');
+    startQuiz.classList.add('hide');
     clearInterval(myTimer);
-    lsOutput.classList.remove('hide');
+    backButton.classList.remove('hide');
     console.log('clicked');
-    localStorage.getItem(li);
-    // userScore.classList.add('hide');
-    // questionContainer.classList.add('hide');
-    // finishButton.classList.add('hide');
-    // startQuiz.classList.add('hide');
-    // instructions.classList.add('hide');
-    // highscore.classList.remove('hide');
+    ul.innerHTML = localStorage.getItem(liMaker);
 });
 
 var questions = [
