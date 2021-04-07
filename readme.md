@@ -12,16 +12,22 @@ This is a simple code quiz application. For every wrong answer, 10 seconds is de
 
 ## Criteria
 
-    GIVEN two buns for the burger
+    GIVEN coding questions
 
-    WHEN the user click on Start Quiz
-    THEN the timer begins and the first question is shown
-    WHEN the user selects a wrong answer
-    THEN 10 seconds will be removed from the timer
-    WHEN the user completes the quiz
-    THEN the user is prompted with inputing their initials for the scoreboard
-    WHEN the user clicks on View Highscores
-    THEN the user will be able to see their high score as well as past high scores
+    WHEN the Start Quiz button is clicked
+    THEN a series of questions follows
+    WHEN a wrong answer is selected
+    THEN 10 seconds is taken off the time clock
+    WHEN Quiz is finished
+    THEN a screen requesting the user's initials as well as the users score appears
+    WHEN the user inputs their initials
+    THEN it is logged to the browser with current and past highscores appearing
+    WHEN View Highscores is clicked
+    THEN past highscores appear
+    WHEN Clear Highscores is clicked
+    THEN current and past highscores are cleared from storage
+    WHEN Go Back is clicked
+    THEN page returns to beginning awaiting user selection
 
 ## Link
 
