@@ -1,29 +1,34 @@
-//Created a quiz that logs the user score
+# Code Quiz
 
-//When the Start Quiz button is clicked
+## Description
 
-//Then a series of questions follows
+This is a simple code quiz application. For every wrong answer, 10 seconds is deducted from your timer and final score. High score wins!
 
-//When a wrong answer is selected
+## User Story
 
-//Then 10 seconds is taken off the time clock
+    AS A student
+    I WANT to test my coding knowledge
+    SO THAT I can see my strength and weaknesses
 
-//When Quiz is finished
+## Criteria
 
-//Then a screen requesting the user's initials as well as the users score appears
+    GIVEN two buns for the burger
 
-//When the user inputs their initials
+    WHEN the user click on Start Quiz
+    THEN the timer begins and the first question is shown
+    WHEN the user selects a wrong answer
+    THEN 10 seconds will be removed from the timer
+    WHEN the user completes the quiz
+    THEN the user is prompted with inputing their initials for the scoreboard
+    WHEN the user clicks on View Highscores
+    THEN the user will be able to see their high score as well as past high scores
 
-//Then it is logged to the browser with current and past highscores appearing
+## Link
 
-//When View Highscores is clicked
+The link below will give you access to the web application:
 
-//Then past highscores appear
+https://dghazi12.github.io/davidaghazi04.github.io/
 
-//When Clear Highscores is clicked
+## Preview
 
-//Then current and past highscores are cleared from storage
-
-//When Go Back is clicked
-
-//Then page returns to beginning awaiting user selection
+![](CodeQuiz.gif)
